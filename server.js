@@ -4,7 +4,7 @@ var express = require('express'),
   port = process.env.PORT || 3000,
   mongoose = require('mongoose'),
   Produto = require('./api/models/mensagemModel'),
-  Empresa = require('./api/models/empresaModel'),
+  Empresa = require('./api/models/assuntoModel'),
   bodyParser = require('body-parser');
 
 // mongoose instance connection url connection
@@ -21,10 +21,10 @@ app.use(bodyParser.json());
 app.use(cors());
 
 var mensagemRoutes = require('./api/routes/mensagemRoutes');
-var empresaRoutes = require('./api/routes/empresaRoutes');
+var assuntoRoutes = require('./api/routes/assuntoRoutes');
 
 mensagemRoutes(app);
-empresaRoutes(app);
+assuntoRoutes(app);
 
 app.use(function(req, res) {
   res.status(404).send({ url: req.originalUrl + ' not found' });

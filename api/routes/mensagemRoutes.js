@@ -8,9 +8,5 @@ module.exports = function(app) {
     .post(mensagem.create)
     .get(mensagem.findAll);
 
-  app
-    .route('/mensagem/:taskId')
-    .get(mensagem.findById)
-    .put(mensagem.updateById)
-    .delete(mensagem.deleteById);
+  app.route('/mensagem/:mensagemId').delete(mensagem.deleteById);
 };

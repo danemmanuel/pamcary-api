@@ -18,34 +18,10 @@ exports.create = (req, res) => {
   });
 };
 
-exports.findById = (req, res) => {
-  Mensagem.findById(req.params.taskId, (err, task) => {
+exports.deleteById = (req, res) => {
+  req.body.ativo = false;
+  Mensagem.deleteOne({ _id: req.params.mensagemId }, (err, task) => {
     if (err) res.send(err);
     res.json(task);
   });
-};
-
-exports.updateById = (req, res) => {
-  Mensagem.findOneAndUpdate(
-    { _id: req.params.taskId },
-    req.body,
-    { new: true },
-    (err, task) => {
-      if (err) res.send(err);
-      res.json(task);
-    }
-  );
-};
-
-exports.deleteById = (req, res) => {
-  req.body.ativo = false;
-  Mensagem.findOneAndUpdate(
-    { _id: req.params.taskId },
-    req.body,
-    { new: true },
-    (err, task) => {
-      if (err) res.send(err);
-      res.json(task);
-    }
-  );
 };
