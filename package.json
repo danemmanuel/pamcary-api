@@ -17,7 +17,7 @@
     "express": "^4.15.4",
     "jwt-simple": "^0.2.0",
     "moment": "^2.9.0",
-    "mongoose": "^4.11.8",
+    "mongoose": "^5.7.7",
     "nodemailer": "^6.1.1"
   },
   "devDependencies": {
